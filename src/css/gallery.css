@@ -5,3 +5,9 @@ ul{
     margin-top: 8px;
     justify-content: center;
 }
+.gallery-item{
+    transition: transform 300ms linear;
+}
+.gallery-item:hover{
+    transform: scale(1.03);
+}
