@@ -1,4 +1,3 @@
-
 const images = [
   {
     preview:
@@ -64,3 +63,39 @@ const images = [
     description: 'Lighthouse Coast Sea',
   },
 ];
+
+// Описаний в документації
+import SimpleLightbox from "simplelightbox";
+// Додатковий імпорт стилів
+import "simplelightbox/dist/simple-lightbox.css";
+
+const container = document.querySelector(".gallery");
+
+function createImageMarkup({ preview, original, description }) {
+  const markup=`
+<li class="gallery-item">
+  <a class="gallery-link" href="${original}">
+    <img
+      class="gallery-image"
+      src="${preview}"
+      alt="${description}"
+      style="max-width:360px"
+    />
+  </a>
+</li>
+`
+  return markup;
+}
+
+let markup = "";
+for (const image of images) {
+  markup += createImageMarkup(image);
+}
+
+container.innerHTML = markup;
+
+const lightbox = new SimpleLightbox('.gallery-item a', {//* options */
+captionsData: 'alt',
+captionDelay: 250,
+})
+

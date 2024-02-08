@@ -1,9 +1,9 @@
-ul {
+.navigation-list {
     display: flex;
     gap: 10px;
     flex-direction: column;
 }
-a {
+.navigation-item {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,7 +15,7 @@ a {
     background: #0B63F6;
 }
 
-a:hover {
+.navigation-item:hover {
     box-shadow: 0 0 0 2px white, 0 0 0 4px #3C82F8;
     background: white;
     color: #0B63F6;
