@@ -1,0 +1,22 @@
+ul {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 90px;
+    border-radius: 10px;
+    color: white;
+    transition: all 300ms linear;
+    background: #0B63F6;
+}
+
+a:hover {
+    box-shadow: 0 0 0 2px white, 0 0 0 4px #3C82F8;
+    background: white;
+    color: #0B63F6;
+}
