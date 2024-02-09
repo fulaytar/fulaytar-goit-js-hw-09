@@ -96,6 +96,22 @@ container.innerHTML = markup;
 
 const lightbox = new SimpleLightbox('.gallery-item a', {//* options */
 captionsData: 'alt',
-captionDelay: 250,
+  captionDelay: 250,
+  className: 'dark',
 })
+
+  lightbox.on('shown.simplelightbox', () => {
+    const navigationArrow = document.querySelectorAll(
+      '.sl-wrapper .sl-navigation button'
+    );
+    const closeBtn = document.querySelector('.sl-close');
+    navigationArrow.forEach(item => (item.style.color = '#fff'));
+    closeBtn.style.color = '#fff';
+    const countColor = document.querySelector('.sl-wrapper>.sl-counter');
+    countColor.style.color = '#fff';
+  });
+
+
+
+
 

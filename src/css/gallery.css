@@ -11,3 +11,8 @@ ul{
 .gallery-item:hover{
     transform: scale(1.03);
 }
+.dark {
+    background-color: rgba(46, 47, 66, 0.8);
+}
+
+
