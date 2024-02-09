@@ -33,16 +33,15 @@ function getInfoForForm(event) {
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-
+//Отримання та реєстрація даних форми
     const formData = {
     email: form.elements.email.value,
     message: form.elements.message.value,
-};
-    //Отримання та реєстрація даних форми
+    };
+//Виведення результату
     console.log(formData);
     localStorage.clear();
     form.reset();
-
 })
 
 
