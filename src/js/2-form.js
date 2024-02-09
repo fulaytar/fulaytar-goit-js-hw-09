@@ -1,18 +1,58 @@
 const form = document.querySelector('.feedback-form');
+const localStorageKey = 'feedback-form-state';
 
-function checkInput() {
-    let email = form.email.value.trim();
-    let message = form.message.value.trim();
-    const checkForm = {};
-    if (email!=="") {
-    checkForm.email = email;
-    }
-    if (message!=="") {
-    checkForm.message = message;
-    }
-    return checkForm;
-
+// Перевірка збережених даних у localStorage
+const savedState = JSON.parse(localStorage.getItem(localStorageKey));
+if (savedState) {
+  // Заповнення полів форми збереженими даними
+  form.elements.email.value = savedState.email || '';
+  form.elements.message.value = savedState.message || '';
 }
+
+form.addEventListener("input", getInfoForForm);
+const getInfo = {};
+
+function getInfoForForm(event) {
+    event.preventDefault();
+    const email = event.currentTarget.elements.email.value.trim();
+    const message = event.currentTarget.elements.message.value.trim();
+    if (email === "") {
+        delete getInfo.email;
+    }
+    if (message === "") {
+        delete getInfo.message;
+    }
+    if (email) {
+        getInfo.email = email;
+    }
+    if (message) {
+        getInfo.message = message;
+    }
+    localStorage.setItem(localStorageKey, JSON.stringify(getInfo));
+}
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const formData = {
+    email: form.elements.email.value,
+    message: form.elements.message.value,
+};
+    //Отримання та реєстрація даних форми
+    console.log(formData);
+    localStorage.clear();
+    form.reset();
+
+})
+
+
+
+
+
+
+
+
+
 
 /* form.addEventListener("input", getInfoForForm);
 function getInfoForForm(event) {
