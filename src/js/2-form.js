@@ -39,8 +39,8 @@ form.addEventListener("submit", (event) => {
     }
 //Отримання та реєстрація даних форми
     const formData = {
-    email: form.elements.email.value,
-    message: form.elements.message.value,
+    email: form.elements.email.value.trim(),
+    message: form.elements.message.value.trim(),
     };
 //Виведення результату
     console.log(formData);
