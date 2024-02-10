@@ -33,6 +33,10 @@ function getInfoForForm(event) {
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
+//Перевірка повідомлення
+    if (form.elements.message.value.trim() === "") {
+        return alert("Message is not defined")
+    }
 //Отримання та реєстрація даних форми
     const formData = {
     email: form.elements.email.value,
@@ -43,29 +47,3 @@ form.addEventListener("submit", (event) => {
     localStorage.clear();
     form.reset();
 })
-
-
-
-
-
-
-
-
-
-
-/* form.addEventListener("input", getInfoForForm);
-function getInfoForForm(event) {
-    event.preventDefault();
-    const infoInput = checkInput();
-    const dataInfoInput = JSON.stringify(infoInput);
-    localStorage.setItem('feedback-form-state', dataInfoInput);
-    const getDataInfoLocal = localStorage.getItem('feedback-form-state');
-    console.log(getDataInfoLocal)
-    if (getDataInfoLocal) {
-        const infoLocal = JSON.parse(getDataInfoLocal);
-        form.email.value = infoLocal.email;
-        form.message.value = infoLocal.message;
-    }
-    
-    
-} */
