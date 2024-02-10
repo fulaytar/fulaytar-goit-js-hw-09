@@ -87,12 +87,9 @@ function createImageMarkup({ preview, original, description }) {
   return markup;
 }
 
-let markup = "";
-for (const image of images) {
-  markup += createImageMarkup(image);
-}
-
+const markup = images.map(createImageMarkup).join('');
 container.innerHTML = markup;
+
 
 const lightbox = new SimpleLightbox('.gallery-item a', {//* options */
 captionsData: 'alt',
