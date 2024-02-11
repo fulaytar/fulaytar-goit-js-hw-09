@@ -46,6 +46,6 @@ form.addEventListener("submit", (event) => {
     };
 //Виведення результату
     console.log(formData);
-    localStorage.clear();
+    localStorage.removeItem(localStorageKey);
     form.reset();
 })
